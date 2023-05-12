@@ -64,8 +64,12 @@ class _LoginState extends State<Login> {
             padding: const EdgeInsets.all(10.0),
             child: GestureDetector(
               onTap: () {
-                showDialog(
-                    context: context, builder: (ctx) => const RegisterPage());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                );
+
+               
               },
               child: const Center(
                 child: Text('Register'),

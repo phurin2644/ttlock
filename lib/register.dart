@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ttlock/add_device.dart';
+
+import 'add_device.dart';
+
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -314,7 +318,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 45,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () { Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AddDevice()),
+                );},
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     backgroundColor: const Color.fromARGB(255, 0, 122, 255),

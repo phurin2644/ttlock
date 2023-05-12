@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ttlock/choose_lock.dart';
 
 class AddDevice extends StatefulWidget {
   const AddDevice({super.key});
@@ -47,7 +48,10 @@ class _AddDeviceState extends State<AddDevice> {
             const SizedBox(height: 90),
             GestureDetector(
               onTap: () {
-                
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ChooseLock()),
+                );
               },
               child: Container(
                 decoration: BoxDecoration(
