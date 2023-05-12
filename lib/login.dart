@@ -12,6 +12,8 @@ class _LoginState extends State<Login> {
   bool _isPasswordVisible = false;
   TextInputType _keyboardType = TextInputType.text;
 
+  int _typeInout = 0;
+
   final TextEditingController _textEditingController = TextEditingController();
   bool _showSuffixIcon = false;
 
@@ -46,7 +48,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:const Color.fromARGB(255, 0, 122, 255),
+        backgroundColor: const Color.fromARGB(255, 0, 122, 255),
         elevation: 0,
         title: Row(
           children: const [
@@ -62,9 +64,12 @@ class _LoginState extends State<Login> {
             padding: const EdgeInsets.all(10.0),
             child: GestureDetector(
               onTap: () {
-                showDialog(context: context, builder: (ctx) => const RegisterPage());
+                showDialog(
+                    context: context, builder: (ctx) => const RegisterPage());
               },
-              child: const Center(child: Text('Resgister')),
+              child: const Center(
+                child: Text('Register'),
+              ),
             ),
           ),
         ],
@@ -89,6 +94,8 @@ class _LoginState extends State<Login> {
                       size: 30,
                     ),
                     hintText: 'Phone Number or Email',
+                    hintStyle:
+                        TextStyle(color: Colors.black54.withOpacity(0.4)),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.black54.withOpacity(0.06),
@@ -99,10 +106,13 @@ class _LoginState extends State<Login> {
                         color: Colors.black54.withOpacity(0.06),
                       ),
                     ),
-                    
                     suffixIcon: _showSuffixIcon
                         ? IconButton(
-                            icon: const Icon(Icons.clear),
+                            icon: Icon(
+                              Icons.clear,
+                              size: 20,
+                              color: Colors.black54.withOpacity(0.1),
+                            ),
                             onPressed: () {
                               _textEditingController.clear();
                               _updateSuffixIconVisibility();
@@ -125,10 +135,14 @@ class _LoginState extends State<Login> {
                         _isPasswordVisible
                             ? Icons.visibility
                             : Icons.visibility_off,
+                        size: 20,
+                        color: Colors.black54.withOpacity(0.1),
                       ),
                       onPressed: _togglePasswordVisibility,
                     ),
                     hintText: 'Password',
+                    hintStyle:
+                        TextStyle(color: Colors.black54.withOpacity(0.4)),
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                             color: Colors.black54.withOpacity(0.06))),
@@ -144,7 +158,9 @@ class _LoginState extends State<Login> {
                       icon: Icon(Icons.check_circle_rounded,
                           color: Colors.black54.withOpacity(0.1), size: 20),
                     ),
-                    const Text("I've read and agreed"),
+                    Text("I've read and agreed",
+                        style:
+                            TextStyle(color: Colors.black54.withOpacity(0.6))),
                     const SizedBox(
                       width: 5,
                     ),
@@ -159,7 +175,8 @@ class _LoginState extends State<Login> {
                     GestureDetector(
                       child: const Text(
                         ' Privacy Policy',
-                        style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
                       ),
                     ),
                   ],
@@ -171,7 +188,7 @@ class _LoginState extends State<Login> {
                   onPressed: null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey.shade600,
-                    fixedSize: const Size(400, 55),
+                    fixedSize: const Size(400, 45),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -188,10 +205,11 @@ class _LoginState extends State<Login> {
                   height: 20,
                 ),
                 GestureDetector(
-                    child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
-                )),
+                  child: const Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Color.fromARGB(255, 0, 122, 255)),
+                  ),
+                ),
               ],
             ),
           ),
