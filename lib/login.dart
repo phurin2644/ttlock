@@ -12,7 +12,7 @@ class _LoginState extends State<Login> {
   bool _isPasswordVisible = false;
   TextInputType _keyboardType = TextInputType.text;
 
-  int _typeInout = 0;
+  
 
   final TextEditingController _textEditingController = TextEditingController();
   bool _showSuffixIcon = false;

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:ttlock/find_lock.dart';
 import 'package:ttlock/widget/lock_item.dart';
 
 class ChooseLock extends StatelessWidget {
@@ -48,37 +49,45 @@ class ChooseLock extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Row(children: [
-                    Expanded(
-                      flex: 1,
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            'assets/image/alllock.png',
-                            width: 80,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15,top: 35),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text('All Locks',style: TextStyle(fontSize: 15)),
-                                Text('Scan all types of locks',style: TextStyle(color: Colors.black54.withOpacity(0.4))),
-                              ],
+                  child: GestureDetector(
+                    onTap: () {
+                       Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FindLock()),
+                );
+                    },
+                    child: Row(children: [
+                      Expanded(
+                        flex: 1,
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              'assets/image/alllock.png',
+                              width: 80,
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15,top: 35),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text('All Locks',style: TextStyle(fontSize: 15)),
+                                  Text('Scan all types of locks',style: TextStyle(color: Colors.black54.withOpacity(0.4))),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Transform(
-                        transform: Matrix4.rotationY(pi),
-                        alignment: Alignment.center,
-                        child: Icon(
-                          Icons.arrow_back_ios_new,
-                          size: 20,
-                          color: Colors.black54.withOpacity(0.4),
-                        ))
-                  ]),
+                      Transform(
+                          transform: Matrix4.rotationY(pi),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.arrow_back_ios_new,
+                            size: 20,
+                            color: Colors.black54.withOpacity(0.4),
+                          ))
+                    ]),
+                  ),
                 ),
               ),
             ),
@@ -100,7 +109,7 @@ class ChooseLock extends StatelessWidget {
                 LockItem(title:'Bicycle Lock',image: 'assets/image/bicyclelock.png'),
               ],
             ),
-            LockItem(title:'Remote ',image: 'assets/image/remote.png'),
+            const LockItem(title:'Remote ',image: 'assets/image/remote.png'),
           ],
         ),
       ),

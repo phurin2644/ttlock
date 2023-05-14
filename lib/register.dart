@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ttlock/add_device.dart';
 
-import 'add_device.dart';
+
 
 
 class RegisterPage extends StatefulWidget {
